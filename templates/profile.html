@@ -1,0 +1,75 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .text-white {
+            color: white;
+        }
+        .profile-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        body {
+            background-color: black;
+        }
+        .form-container {
+            margin-top: 30px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-group label {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color: yellow">
+    <a class="navbar-brand" href="#">My Book Recommender</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/recommend">Recommend</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container profile-container">
+    <img src="https://via.placeholder.com/150" alt="Profile Icon" class="profile-icon">
+    <h1 class="text-white mt-3">Username</h1>
+</div>
+
+<div class="form-container">
+    <form action="/signin" method="POST">
+        <h3 class="text-white text-center">Sign In</h3>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+    </form>
+
+    <div class="text-white text-center mt-4">
+        <p>Don't have an account? <a href="/signuppage" class="text-primary">Sign Up</a></p>
+    </div>
+</div>
+
+</body>
+</html>

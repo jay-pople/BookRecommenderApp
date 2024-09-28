@@ -1,0 +1,56 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .text-white {
+            color: white;
+        }
+        .card {
+            background-color: black;
+        }
+        .card-body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body style="background-color: black">
+<nav class="navbar navbar-expand-lg" style="background-color: yellow">
+    <a class="navbar-brand" href="#">My Book Recommender</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/recommend">Recommend</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-white" style="font-size: 50px">Top 50 Books</h1>
+        </div>
+
+        {% for i in range (book_name|length)%}
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img-top" src="{{image[i]}}">
+                    <p class="text-white">{{book_name[i]}}</p>
+                    <h4 class="text-white">{{author[i]}}</h4>
+                    <h4 class="text-white">Votes - {{votes[i]}}</h4>
+                    <h4 class="text-white">Rating - {{rating[i]}}</h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

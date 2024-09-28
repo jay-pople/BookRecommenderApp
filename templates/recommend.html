@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Recommender</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="booklist_css.css">
+
+    <style>
+        .text-white {
+            color: white;
+        }
+    </style>
+
+    <script src="bookList.js" defer></script>
+</head>
+<body style="background-color: black;">
+    <nav class="navbar navbar-expand-lg" style="background-color: yellow;">
+        <a class="navbar-brand" href="#">My Book Recommender</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/recommend">Recommend</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="text-white" style="font-size: 50px;">Recommended Books</h1>
+
+                <form action="/recommend_books" method="post" class="mt-4">
+            <input type="text" id="book_title" name="user_input" class="form-control mb-3" placeholder="Enter book title" onkeyup="fetchBookSuggestions()">
+            <div id="book_suggestions" class="suggestions"></div>
+            <input type="submit" class="btn btn-lg btn-warning" value="Get Recommendations">
+                </form>
+
+    <script src="bookList.js.js" defer></script>
+
+
+
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            {% if data %}
+            {% for i in data %}
+            <div class="col-md-3 mb-4">
+                <div class="card bg-dark text-white">
+                    <img class="card-img-top" src="{{ i[2] }}" alt="Book image">
+                    <div class="card-body">
+                        <p>{{ i[0] }}</p>
+                        <h4>{{ i[1] }}</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
